@@ -49,13 +49,6 @@ public class CategoryBookAdapter extends RecyclerBaseAdapter<CategoryBookItemBea
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
     @Override

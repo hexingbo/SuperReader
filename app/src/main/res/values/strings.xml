@@ -34,6 +34,14 @@
     <string name="book_case">书架</string>
     <string name="category">分类</string>
     <string name="hotlist">排行榜</string>
+    <string name="search_hide">输入小说名或作者</string>
+    <string name="auther">作者：</string>
+    <string name="type">类型：</string>
+    <string name="source">来源：</string>
+    <string name="jianjie">简介</string>
+    <string name="reading">阅读</string>
+    <string name="add_book_case">加入书架</string>
+    <string name="no_book">暂未收录</string>
 
 
 </resources>

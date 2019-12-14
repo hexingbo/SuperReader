@@ -11,6 +11,7 @@ import com.superme.reader.di.module.fragment.CategoryFragmentModule;
 import com.superme.reader.mvp.model.entity.res.CategoryBookItemBean;
 import com.superme.reader.mvp.model.entity.res.CategoryItemBean;
 import com.superme.reader.mvp.presenter.CategoryPresenter;
+import com.superme.reader.mvp.view.activity.SearchActivity;
 import com.superme.reader.mvp.view.adapter.CategoryBookAdapter;
 import com.superme.reader.mvp.view.adapter.CategoryLeftAdapter;
 import com.superme.reader.mvp.view.adapter.base.OnItemBaseListener;
@@ -103,7 +104,7 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter> implements
         return new OnItemBaseListener<CategoryBookItemBean.BooksBean>() {
             @Override
             public void onItemClick(int position, CategoryBookItemBean.BooksBean bean, View view) {
-
+                startActivity(SearchActivity.getSearchIntent(getContext(), mBookAdapter.getDataList().get(position).getTitle()));
             }
         };
     }

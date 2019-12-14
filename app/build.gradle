@@ -5,7 +5,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
-        applicationId "com.dev.base"
+        applicationId "com.superme.reader"
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 1

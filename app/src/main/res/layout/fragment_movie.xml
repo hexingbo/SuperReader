@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.dev.base.mvp.view.widget.loadlayout.LoadLayout
+<com.superme.reader.mvp.view.widget.loadlayout.LoadLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_base"
     android:layout_width="match_parent"
@@ -25,4 +25,4 @@
         </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 
-</com.dev.base.mvp.view.widget.loadlayout.LoadLayout>
+</com.superme.reader.mvp.view.widget.loadlayout.LoadLayout>

@@ -36,16 +36,16 @@
 
 
 #实体类开始
--keep class com.dev.base.mvp.model.entity.** { *; }
+-keep class com.superme.reader.mvp.model.entity.** { *; }
 #如果你使用了Devring中的GreenOpenHelper来创建初始化DaoMaster，那就需要把GreenDao自动生成的XXXDao忽略混淆
--keep class com.dev.base.mvp.model.db.greendao.** { *; }
+-keep class com.superme.reader.mvp.model.db.greendao.** { *; }
 #实体类结束
 
 
 #RxBus开始
--keep class com.dev.base.mvp.model.bus.support.ThreadMode { *; }
+-keep class com.superme.reader.mvp.model.bus.support.ThreadMode { *; }
 -keepclassmembers class * {
-    @com.dev.base.mvp.model.bus.support.Subscribe <methods>;
+    @com.superme.reader.mvp.model.bus.support.Subscribe <methods>;
 }
 #RxBus结束
 

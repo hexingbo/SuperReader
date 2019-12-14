@@ -1,6 +1,11 @@
 package com.superme.reader.mvp.model.http;
 
+import com.superme.reader.app.constant.UrlConstants;
+import com.superme.reader.mvp.model.entity.res.CategoryBean;
+import com.superme.reader.mvp.model.entity.res.CategoryBookItemBean;
 import com.superme.reader.mvp.model.entity.res.HomeResBean;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -15,8 +20,8 @@ import retrofit2.http.GET;
 public interface BookApiService {
 
     //请求参数一次性传入（通过Map来存放参数名和参数值）
-    @GET("?name=1")
-    Observable<HomeResBean> getHomeDataList();
+    @GET(UrlConstants.Get_Book_Category)
+    Observable<CategoryBean> getCategory();
 
 
 }

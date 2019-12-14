@@ -12,6 +12,6 @@ public class MainHomeModel implements IMainHomeModel {
 
     @Override
     public Observable<HomeResBean> getHomeDataList() {
-        return DevRing.httpManager().getService(BookApiService.class).getHomeDataList();
+       return null;
     }
 }

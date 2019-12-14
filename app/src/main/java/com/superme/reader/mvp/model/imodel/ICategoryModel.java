@@ -1,9 +1,13 @@
 package com.superme.reader.mvp.model.imodel;
 
 import com.ljy.devring.base.imodel.IBaseModel;
+import com.superme.reader.mvp.model.entity.res.CategoryBean;
+
+import io.reactivex.Observable;
 
 
 public interface ICategoryModel extends IBaseModel {
 
+    Observable<CategoryBean> getCategory();
 
 }

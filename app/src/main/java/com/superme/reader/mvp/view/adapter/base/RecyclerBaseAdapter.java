@@ -3,6 +3,8 @@ package com.superme.reader.mvp.view.adapter.base;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.ljy.devring.other.RingLog;
 import com.ljy.devring.util.CollectionUtil;
@@ -21,14 +23,27 @@ public abstract class RecyclerBaseAdapter<T> extends RecyclerView.Adapter<ViewHo
 
     private List<T> mDataList;
 
-    protected RecyclerBaseAdapter( @NonNull List<T> mDataList) {
+    protected OnItemBaseListener mItemListener;
+
+    public void setItemClickListener(OnItemBaseListener itemClickListener) {
+        this.mItemListener = itemClickListener;
+    }
+
+    protected RecyclerBaseAdapter(@NonNull List<T> mDataList) {
         this.mDataList = mDataList;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         final int p = holder.getLayoutPosition();
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mItemListener != null) {
+                    mItemListener.onItemClick(position, (mDataList != null && !mDataList.isEmpty()) ? null : mDataList.get(position), holder.itemView);
+                }
+            }
+        });
         bindDataForView(holder, (mDataList != null && !mDataList.isEmpty()) ? (mDataList.size() > p ? mDataList.get(p) : null) : null, p);
 
     }
@@ -120,7 +135,6 @@ public abstract class RecyclerBaseAdapter<T> extends RecyclerView.Adapter<ViewHo
             RingLog.e(TAG, "插入的数据集为空或长度小于等于零, 请检查你的数据集!");
             return;
         }
-
         mDataList = list;
         notifyDataSetChanged();
     }
@@ -159,4 +173,5 @@ public abstract class RecyclerBaseAdapter<T> extends RecyclerView.Adapter<ViewHo
         mDataList.clear();
         notifyItemRangeChanged(0, getItemCount());
     }
+
 }

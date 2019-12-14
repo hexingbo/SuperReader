@@ -30,4 +30,10 @@
     <string name="close">关闭</string>
 
     <string name="exit_confirm">再点一次退出程序</string>
+    <string name="tv_super_reader">超级读者</string>
+    <string name="book_case">书架</string>
+    <string name="category">分类</string>
+    <string name="hotlist">排行榜</string>
+
+
 </resources>

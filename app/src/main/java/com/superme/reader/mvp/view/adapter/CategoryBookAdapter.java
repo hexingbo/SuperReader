@@ -43,7 +43,6 @@ public class CategoryBookAdapter extends RecyclerBaseAdapter<CategoryBookItemBea
         try {
             String urlLink = URLDecoder.decode(bean.getCover(), "UTF-8").replace("/agent/", "");
             RingLog.d("imgUrl：" + urlLink);
-            //加载图片，且效果为 圆角&灰白&模糊
             DevRing.imageManager().loadNet(urlLink, ivLogo);
 
         } catch (UnsupportedEncodingException e) {

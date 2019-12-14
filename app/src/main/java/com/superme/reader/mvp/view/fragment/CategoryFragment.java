@@ -19,7 +19,6 @@ import com.superme.reader.mvp.view.fragment.base.BaseFragment;
 import com.superme.reader.mvp.view.iview.ICategoryView;
 import com.superme.reader.util.LayoutManagerUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;

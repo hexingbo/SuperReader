@@ -1,5 +1,6 @@
 package com.superme.reader.mvp.view.iview;
 
+import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.ljy.devring.base.iview.IBaseView;
 import com.superme.reader.mvp.model.entity.res.CategoryBookItemBean;
 import com.superme.reader.mvp.model.entity.res.CategoryItemBean;
@@ -12,7 +13,11 @@ import java.util.List;
 
 public interface ICategoryView extends IBaseView {
 
-    OnItemBaseListener getItemClickListener();
+    TwinklingRefreshLayout getRefreshLayout();
+
+    OnItemBaseListener<CategoryBookItemBean.BooksBean> getItemClickListener();
+
+    OnItemBaseListener<CategoryItemBean> getLeftItemClickListener();
 
     CategoryLeftAdapter getCategoryLeftAdapter();
 
@@ -21,4 +26,6 @@ public interface ICategoryView extends IBaseView {
     List<CategoryItemBean> getCategoryItemList();
 
     List<CategoryBookItemBean.BooksBean> getBooksLsit();
+
+    void setNowCategoryItemBean(CategoryItemBean bean);
 }

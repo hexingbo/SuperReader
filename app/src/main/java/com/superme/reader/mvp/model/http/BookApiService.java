@@ -9,6 +9,8 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 /**
  * author:  ljy
@@ -19,9 +21,16 @@ import retrofit2.http.GET;
 
 public interface BookApiService {
 
-    //请求参数一次性传入（通过Map来存放参数名和参数值）
     @GET(UrlConstants.Get_Book_Category)
     Observable<CategoryBean> getCategory();
+
+    @GET(UrlConstants.Get_Book_Category_Item)
+    Observable<CategoryBookItemBean> getCategoryBookItem(@Query("start") int start,
+                                                 @Query("limit") String limit,
+                                                 @Query("major") String major,
+                                                 @Query("minor") String minor,
+                                                 @Query("type") String type,
+                                                 @Query("gender") String gender);
 
 
 }

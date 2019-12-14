@@ -14,6 +14,7 @@ public interface UrlConstants {
 
     String BASE_URL = "https://api.zhuishushenqi.com/";
     String Get_Book_Category = "cats/lv2";
+    String Get_Book_Category_Item = "book/by-categories";
 
     String UPLOAD = "http://upload.qiniu.com/";
     String DOWNLOAD = "http://ucan.25pp.com/Wandoujia_web_seo_baidu_homepage.apk";

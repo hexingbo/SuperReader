@@ -18,6 +18,7 @@ import com.superme.reader.mvp.view.fragment.base.BaseFragment;
 import com.superme.reader.mvp.view.iview.ICategoryView;
 import com.superme.reader.util.LayoutManagerUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -42,6 +43,8 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter> implements
     List<CategoryItemBean> mCategoryItemList;
     @Inject
     List<CategoryBookItemBean.BooksBean> mBooksList;
+
+    private CategoryItemBean mNowCategoryItemBean;  //现在使用的左边的分类
 
     @Override
     protected boolean isLazyLoad() {
@@ -72,7 +75,9 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter> implements
 
             @Override
             public void onLoadMore(final TwinklingRefreshLayout refreshLayout) {
-
+                if (mNowCategoryItemBean == null) return;
+                mNowCategoryItemBean.start = mBookAdapter.getItemCount();
+                mPresenter.getCategoryBookItem(mNowCategoryItemBean);
             }
         });
 
@@ -89,11 +94,26 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter> implements
     }
 
     @Override
-    public OnItemBaseListener getItemClickListener() {
-        return new OnItemBaseListener() {
-            @Override
-            public void onItemClick(int position, Object bean, View view) {
+    public TwinklingRefreshLayout getRefreshLayout() {
+        return mRefreshLayout;
+    }
 
+    @Override
+    public OnItemBaseListener<CategoryBookItemBean.BooksBean> getItemClickListener() {
+        return new OnItemBaseListener<CategoryBookItemBean.BooksBean>() {
+            @Override
+            public void onItemClick(int position, CategoryBookItemBean.BooksBean bean, View view) {
+
+            }
+        };
+    }
+
+    @Override
+    public OnItemBaseListener<CategoryItemBean> getLeftItemClickListener() {
+        return new OnItemBaseListener<CategoryItemBean>() {
+            @Override
+            public void onItemClick(int position, CategoryItemBean bean, View view) {
+                mPresenter.getCategoryBookItem(bean);
             }
         };
     }
@@ -117,4 +137,10 @@ public class CategoryFragment extends BaseFragment<CategoryPresenter> implements
     public List<CategoryBookItemBean.BooksBean> getBooksLsit() {
         return mBooksList;
     }
+
+    @Override
+    public void setNowCategoryItemBean(CategoryItemBean bean) {
+        mNowCategoryItemBean = bean;
+    }
+
 }

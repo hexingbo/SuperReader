@@ -63,6 +63,7 @@ public class RingApplication extends Application {
 
         //图片加载模块（可替换，demo演示了如何使用Fresco替换默认的Glide）
 //        DevRing.configureImage()//配置默认的Glide
+//        DevRing.configureImage() //传入Fresco管理者进行替换，注意，替换为Fresco后，相关的ImageView需换成SimpleDraweeView
         DevRing.configureImage(new FrescoManager()) //传入Fresco管理者进行替换，注意，替换为Fresco后，相关的ImageView需换成SimpleDraweeView
                 .setLoadingResId(R.mipmap.ic_image_load)//设置“加载中”状态时显示的图片
                 .setErrorResId(R.mipmap.ic_image_load)//设置“加载失败”状态时显示的图片

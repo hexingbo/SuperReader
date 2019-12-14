@@ -68,7 +68,7 @@ public class CategoryFragmentModule {
     @Provides
     static  CategoryLeftAdapter provideCategoryLeftAdapter(List<CategoryItemBean> mDataList, ICategoryView iView) {
         CategoryLeftAdapter adapter = new CategoryLeftAdapter(mDataList);
-        adapter.setItemClickListener(iView.getItemClickListener());
+        adapter.setItemClickListener(iView.getLeftItemClickListener());
         return adapter;
     }
 }

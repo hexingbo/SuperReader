@@ -23,9 +23,9 @@ public abstract class RecyclerBaseAdapter<T> extends RecyclerView.Adapter<ViewHo
 
     private List<T> mDataList;
 
-    protected OnItemBaseListener mItemListener;
+    protected OnItemBaseListener<T> mItemListener;
 
-    public void setItemClickListener(OnItemBaseListener itemClickListener) {
+    public void setItemClickListener(OnItemBaseListener<T> itemClickListener) {
         this.mItemListener = itemClickListener;
     }
 

@@ -8,15 +8,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ljy.devring.DevRing;
-import com.ljy.devring.image.support.LoadOption;
+import com.ljy.devring.other.RingLog;
 import com.superme.reader.R;
 import com.superme.reader.mvp.model.entity.res.CategoryBookItemBean;
 import com.superme.reader.mvp.view.adapter.base.RecyclerBaseAdapter;
 import com.superme.reader.mvp.view.adapter.base.ViewHolder;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * author:  ljy
@@ -26,30 +26,29 @@ import butterknife.BindView;
 
 public class CategoryBookAdapter extends RecyclerBaseAdapter<CategoryBookItemBean.BooksBean> {
 
-    @BindView(R.id.iv_logo)
-    ImageView ivLogo;
-    @BindView(R.id.tv_book_name)
-    TextView tvBookName;
-    @BindView(R.id.tv_auther)
-    TextView tvAuther;
-    @BindView(R.id.tv_intro)
-    TextView tvIntro;
-
     public CategoryBookAdapter(@NonNull List<CategoryBookItemBean.BooksBean> mDataList) {
         super(mDataList);
     }
 
     @Override
     protected void bindDataForView(ViewHolder holder, final CategoryBookItemBean.BooksBean bean, final int position) {
+        ImageView ivLogo = holder.getView(R.id.iv_logo);
+        TextView tvBookName = holder.getView(R.id.tv_book_name);
+        TextView tvAuther = holder.getView(R.id.tv_auther);
+        TextView tvIntro = holder.getView(R.id.tv_intro);
 
         tvBookName.setText(bean.getTitle());
         tvAuther.setText(bean.getAuthor());
         tvIntro.setText(bean.getShortIntro());
+        try {
+            String urlLink = URLDecoder.decode(bean.getCover(), "UTF-8").replace("/agent/", "");
+            RingLog.d("imgUrl：" + urlLink);
+            //加载图片，且效果为 圆角&灰白&模糊
+            DevRing.imageManager().loadNet(urlLink, ivLogo);
 
-        //加载图片，且效果为 圆角&灰白&模糊
-        DevRing.imageManager().loadNet(bean.getCover(), ivLogo,
-                new LoadOption().setRoundRadius(80).setIsGray(true).setBlurRadius(5));
-
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -15,7 +15,7 @@ android {
         //指定EventBus加速用的Index
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [eventBusIndex: "com.dev.base.MyEventBusIndex"]
+                arguments = [eventBusIndex: "com.superme.reader.MyEventBusIndex"]
             }
         }
     }
@@ -48,7 +48,7 @@ android {
     greendao {
         //数据库版本号，升级时进行修改
         schemaVersion 1
-        daoPackage 'com.dev.base.mvp.model.db.greendao' //生成的DAO，DaoMaster和DaoSession的包名。默认是实体的包名
+        daoPackage 'com.superme.reader.mvp.model.db.greendao' //生成的DAO，DaoMaster和DaoSession的包名。默认是实体的包名
         targetGenDir 'src/main/java' //生成源文件的路径。默认源文件目录是在build目录中的(build/generated/source/greendao)
     }
 

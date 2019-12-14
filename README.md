@@ -153,7 +153,7 @@ api ('com.ljy.ring:devring:x.x.x'){
 <img src="screenshot/template1.png" width="40%" height="40%">
 
 ### 步骤2
-在项目的根包名(如com.dev.base)下右键--->New --->Activity --->DevRing快速生成模板。
+在项目的根包名(如com.superme.reader)下右键--->New --->Activity --->DevRing快速生成模板。
 <br>
 <br>
 <img src="screenshot/template2.png" width="40%" height="40%">

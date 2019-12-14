@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="将下载到\n/storage/emulated/0/Android/data/com.dev.base/cache/"
+            android:text="将下载到\n/storage/emulated/0/Android/data/com.superme.reader/cache/"
             android:textSize="14sp"/>
 
         <Button

@@ -14,6 +14,7 @@ import com.ljy.devring.DevRing;
 import com.ljy.devring.other.RingLog;
 import com.superme.reader.R;
 import com.superme.reader.mvp.model.entity.res.SearchBookInfoBean;
+import com.superme.reader.mvp.view.activity.ReadBookActivity;
 import com.superme.reader.mvp.view.adapter.base.RecyclerBaseAdapter;
 import com.superme.reader.mvp.view.adapter.base.ViewHolder;
 
@@ -106,6 +107,12 @@ public class SearchBookAdapter extends RecyclerBaseAdapter<SearchBookInfoBean> {
             e.printStackTrace();
         }
 
+        btRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.getContext().startActivity(ReadBookActivity.getBookInfoBean(view.getContext(), bean));
+            }
+        });
         mBookInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

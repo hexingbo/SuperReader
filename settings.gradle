@@ -1,1 +1,1 @@
-include ':app', ':devring'
+include ':app', ':devring', ':reader'

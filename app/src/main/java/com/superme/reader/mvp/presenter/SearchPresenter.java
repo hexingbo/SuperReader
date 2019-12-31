@@ -5,11 +5,10 @@ import com.ljy.devring.http.support.observer.CommonObserver;
 import com.ljy.devring.http.support.throwable.HttpThrowable;
 import com.ljy.devring.util.RingToast;
 import com.superme.reader.mvp.model.entity.res.SearchBookInfoBean;
-import com.superme.reader.mvp.model.entity.res.ZhuiShuSearcheBean;
+import com.superme.reader.mvp.model.entity.res.SearcheBookResult;
 import com.superme.reader.mvp.model.imodel.ISearchModel;
 import com.superme.reader.mvp.view.iview.ISearchView;
 
-import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -26,21 +25,21 @@ public class SearchPresenter extends BasePresenter<ISearchView, ISearchModel> {
         mIModel.getSearchBook(word)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new CommonObserver<ZhuiShuSearcheBean>() {
+                .subscribe(new CommonObserver<SearcheBookResult>() {
 
                     @Override
-                    public void onResult(ZhuiShuSearcheBean result) {
+                    public void onResult(SearcheBookResult result) {
                         ArrayList<SearchBookInfoBean> searchBookInfoBeans = new ArrayList<>();
                         //把追书的结果转换成 SearchBookInfoBean
                         SearchBookInfoBean zhuishuBookInfoBean;
-                        for (ZhuiShuSearcheBean.BooksBean bean : result.getBooks()) {
+                        for (SearcheBookResult.ListBean bean : result.getList()) {
                             zhuishuBookInfoBean = new SearchBookInfoBean();
-                            zhuishuBookInfoBean.setBookName(bean.getTitle());
-                            zhuishuBookInfoBean.setImg(URLDecoder.decode(bean.getCover()).replace("/agent/", ""));
+                            zhuishuBookInfoBean.setBookName(bean.getName());
+                            zhuishuBookInfoBean.setImg(bean.getCover());
                             zhuishuBookInfoBean.setAuthor(bean.getAuthor());
-                            zhuishuBookInfoBean.setIntro(bean.getShortIntro());
-                            zhuishuBookInfoBean.setId(bean.get_id());
-                            zhuishuBookInfoBean.setType(bean.getCat());
+                            zhuishuBookInfoBean.setIntro(bean.getIntroduce());
+                            zhuishuBookInfoBean.setId(bean.getUrl());
+                            zhuishuBookInfoBean.setType(bean.getTag());
                             zhuishuBookInfoBean.setTag("ZS");
                             zhuishuBookInfoBean.setZhuiShu(true);
                             searchBookInfoBeans.add(zhuishuBookInfoBean);

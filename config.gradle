@@ -1,0 +1,41 @@
+ext {
+
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
+            minSdkVersion    : 19,
+            targetSdkVersion : 28,
+            versionCode      : 2,
+            versionName      : "1.0.2"
+    ]
+
+    version = [
+            androidSupportSdkVersion: "28.0.0",
+            retrofitSdkVersion      : "2.4.0",
+            dagger2SdkVersion       : "2.19",
+            butterknifeSdkVersion   : "9.0.0",
+            rxlifecycleSdkVersion   : "3.0.0",
+            rxlifecycle2SdkVersion  : "2.2.1",
+            espressoSdkVersion      : "3.0.2",
+            canarySdkVersion        : "1.6.2"//https://www.jianshu.com/p/b83ddffcb3b5讲解
+    ]
+    dependencies = [
+            //root
+            "appcompat-v7"             : "com.android.support:appcompat-v7:${version["androidSupportSdkVersion"]}",
+            "support-v4"               : "com.android.support:support-v4:${version["androidSupportSdkVersion"]}",
+            "junit"                    : "junit:junit:4.12",
+            "runner"                   : "com.android.support.test:runner:1.0.2",
+            "espresso-core"            : "com.android.support.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
+            "espresso-contrib"         : "com.android.support.test.espresso:espresso-contrib:${version["espressoSdkVersion"]}",
+            "espresso-intents"         : "com.android.support.test.espresso:espresso-intents:${version["espressoSdkVersion"]}",
+            "gson"                     : "com.google.code.gson:gson:2.8.5",
+            "androidJUnitRunner"       : "android.support.test.runner.AndroidJUnitRunner",
+            "annotations"              : "com.android.support:support-annotations:${version["androidSupportSdkVersion"]}",
+
+            "design"                   : "com.android.support:design:${version["androidSupportSdkVersion"]}",
+            "cardview-v7"              : "com.android.support:cardview-v7:${version["androidSupportSdkVersion"]}",
+            "recyclerview-v7"          : "com.android.support:recyclerview-v7:${version["androidSupportSdkVersion"]}",
+            "constraint"               : "com.android.support.constraint:constraint-layout:1.1.3",
+    ]
+
+}
